@@ -1,5 +1,4 @@
 class Queue
-	attr_reader :queue
 
 	def initialize
 		@queue = []
@@ -7,6 +6,7 @@ class Queue
 
 	def enqueue(el)
 		queue.unshift(el)
+		el
 	end
 
 	def dequeue
@@ -14,6 +14,9 @@ class Queue
 	end
 
 	def show
-		queue
+		queue.dup
 	end
+
+	private
+	attr_reader :queue
 end
