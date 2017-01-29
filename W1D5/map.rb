@@ -1,5 +1,4 @@
 class Map
-	attr_reader :map
 
 	def initialize
 		@map = []
@@ -11,6 +10,7 @@ class Map
 		else
 			map << [key, value]
 		end
+		[key, value]
 	end
 
 	def lookup(key)
@@ -22,6 +22,9 @@ class Map
 	end
 
 	def show
-		map
+		map.dup
 	end
+
+	private
+	attr_reader :map
 end
