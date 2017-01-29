@@ -1,5 +1,4 @@
   class Stack
-    attr_reader :stack
 
     def initialize
       @stack = []
@@ -7,6 +6,7 @@
 
     def add(el)
       stack << el
+      el
     end
 
     def remove
@@ -14,6 +14,9 @@
     end
 
     def show
-      stack
+      stack.dup
     end
+
+    private
+    attr_reader :stack
   end
