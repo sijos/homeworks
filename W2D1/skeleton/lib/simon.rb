@@ -10,7 +10,8 @@ class Simon
   end
 
   def play
-
+    take_turn until game_over
+    game_over_message
   end
 
   def take_turn
@@ -32,7 +33,7 @@ class Simon
   end
 
   def add_random_color
-    seq << COLORS.sample
+    @seq << COLORS.sample
   end
 
   def round_success_message
