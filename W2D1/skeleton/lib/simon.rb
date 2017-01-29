@@ -23,8 +23,12 @@ class Simon
   end
 
   def require_sequence
-    
-
+    # TODO add input error checking
+    puts "Repeat the last sequence, one color at a time:"
+    input = gets.chomp.split("")
+    input.each_with_index do |color, idx| 
+      game_over = true if seq[idx] == color
+    end
   end
 
   def add_random_color
