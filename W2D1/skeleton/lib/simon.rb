@@ -14,7 +14,8 @@ class Simon
   end
 
   def take_turn
-
+    show_sequence
+    require_sequence
   end
 
   def show_sequence
@@ -22,11 +23,12 @@ class Simon
   end
 
   def require_sequence
+    
 
   end
 
   def add_random_color
-
+    seq << COLORS.sample
   end
 
   def round_success_message
