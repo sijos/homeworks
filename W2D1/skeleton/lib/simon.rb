@@ -42,11 +42,11 @@ class Simon
   end
 
   def round_success_message
-
+    puts "Good job! Now see if you can get another..."
   end
 
   def game_over_message
-
+    puts "NOPE. WRONG. FAIL. Let's start over and try again"
   end
 
   def reset_game
