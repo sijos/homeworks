@@ -33,7 +33,7 @@ class Simon
     puts "Repeat the last sequence, one color at a time:"
     input = gets.chomp.split("")
     input.each_with_index do |color, idx| 
-      game_over = true if seq[idx] == color
+      game_over = true unless seq[idx] == color
     end
   end
 
@@ -53,5 +53,10 @@ class Simon
     @game_over = false
     @seq = []
   end
+end
+
+if __FILE__ == $PROGRAM_NAME
+  game = Simon.new
+  game.play
 end
 
