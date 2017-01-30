@@ -10,17 +10,22 @@ class Simon
   end
 
   def play
-    take_turn until game_over
+    until game_over
+      take_turn 
+    end
     game_over_message
+    reset_game
   end
 
   def take_turn
     show_sequence
     require_sequence
+    round_success_message unless game_over
   end
 
   def show_sequence
-
+    add_random_color
+    puts "The current sequence is: #{seq.join(" -- ")}"
   end
 
   def require_sequence
@@ -45,6 +50,8 @@ class Simon
   end
 
   def reset_game
-
+    @game_over = false
+    @seq = []
   end
 end
+
