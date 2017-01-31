@@ -20,12 +20,18 @@ class Simon
   def take_turn
     show_sequence
     require_sequence
+    @sequence_length += 1
     round_success_message unless game_over
   end
 
   def show_sequence
     add_random_color
-    puts "The current sequence is: #{seq.join(" -- ")}"
+    seq.each do |color|
+      puts color
+      sleep 0.75
+      system("clear")
+      sleep 0.25
+    end
   end
 
   def require_sequence
@@ -52,6 +58,7 @@ class Simon
   def reset_game
     @game_over = false
     @seq = []
+    @sequence_length = 1
   end
 end
 
