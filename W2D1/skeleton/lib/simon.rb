@@ -37,10 +37,14 @@ class Simon
   def require_sequence
     # TODO add input error checking
     puts "Repeat the last sequence, one color at a time:"
-    input = gets.chomp.split("")
-    input.each_with_index do |color, idx| 
-      game_over = true unless seq[idx] == color
+    @seq.each do |color|
+      input = gets.chomp
+      if color != input
+        @game_over = true
+        break
+      end
     end
+    sleep 0.5
   end
 
   def add_random_color
@@ -52,7 +56,7 @@ class Simon
   end
 
   def game_over_message
-    puts "NOPE. WRONG. FAIL. Let's start over and try again"
+    puts "NOPE. WRONG. FAIL. You made it #{sequence_length - 1} rounds"
   end
 
   def reset_game
