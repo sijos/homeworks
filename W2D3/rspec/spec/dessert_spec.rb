@@ -29,26 +29,36 @@ describe Dessert do
 
 
   describe "#add_ingredient" do
-    before(:each) do 
+    it "adds an ingredient to the ingredients array" do
       dessert.add_ingredient('eggs')
       dessert.add_ingredient('sugar')
       dessert.add_ingredient('flour')
-    end
-
-    it "adds an ingredient to the ingredients array" do
       expect(dessert.ingredients).to include('eggs')
     end
 
   end
 
   describe "#mix!" do
-    it "shuffles the ingredient array"
+    it "shuffles the ingredient array" do 
+      dessert.add_ingredient('eggs')
+      dessert.add_ingredient('sugar')
+      dessert.add_ingredient('flour')
+      dessert.add_ingredient('chocolate')
+      dessert.add_ingredient('water')
+      dessert.mix!
+      expect(dessert.ingredients).to_not eq(%w(eggs sugar flour chocolate water))
+    end
   end
 
   describe "#eat" do
-    it "subtracts an amount from the quantity"
+    it "subtracts an amount from the quantity" do
+      dessert.eat(5)
+      expect(dessert.quantity).to eq(5)
+    end
 
-    it "raises an error if the amount is greater than the quantity"
+    it "raises an error if the amount is greater than the quantity" do
+      expect { dessert.eat(15) }.to raise_error("not enough left!")
+    end
   end
 
   describe "#serve" do
