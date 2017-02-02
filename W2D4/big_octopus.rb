@@ -11,7 +11,7 @@ def sluggish_octopus(fish)
 	biggest_fish
 end
 
-puts "Sluggish Octopus returns;"
+puts "Sluggish Octopus returns:"
 puts sluggish_octopus(FISH)
 
 def dominant_octopus(fish, &prc)
@@ -22,3 +22,22 @@ def dominant_octopus(fish, &prc)
 	right = dominant_octopus(fish.drop(mid) & prc)
 	merge(left, right, &prc)
 end
+
+def merge(left, right, &prc)
+	prc ||= Proc.new { |n1, n2| n1 <=> n2 }
+	merged = []
+	until left.empty? || right.empty?
+		case prc.call(left.first, right.first)
+		when -1
+			merged << left.shift
+		when 0
+			merged << left.shift
+		when 1
+			merged << right.shift
+		end
+	end
+	merged
+end
+
+puts "Dominant Octopus returns:"
+puts sluggish_octopus(FISH) { |fish1, fish2| fish2.length <=> fish1.length}
