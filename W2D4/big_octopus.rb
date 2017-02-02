@@ -11,4 +11,14 @@ def sluggish_octopus(fish)
 	biggest_fish
 end
 
+puts "Sluggish Octopus returns;"
 puts sluggish_octopus(FISH)
+
+def dominant_octopus(fish, &prc)
+	return fish if fish.length < 2
+
+	mid = fish.length / 2
+	left = dominant_octopus(fish.take(mid), &prc)
+	right = dominant_octopus(fish.drop(mid) & prc)
+	merge(left, right, &prc)
+end
