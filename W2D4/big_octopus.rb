@@ -41,3 +41,14 @@ end
 
 puts "Dominant Octopus returns:"
 puts sluggish_octopus(FISH) { |fish1, fish2| fish2.length <=> fish1.length}
+
+def clever_octopus(fish)
+	biggest_fish = ""
+	fish.each {|fish| biggest_fish = fish if fish.length > biggest_fish.length}
+	biggest_fish
+end
+
+puts "Clever Octopus returns:"
+puts clever_octopus(FISH)
+
+
