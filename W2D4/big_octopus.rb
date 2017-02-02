@@ -40,7 +40,7 @@ def merge(left, right, &prc)
 end
 
 puts "Dominant Octopus returns:"
-puts sluggish_octopus(FISH) { |fish1, fish2| fish2.length <=> fish1.length}
+puts sluggish_octopus(FISH) { |fish1, fish2| fish2.length <=> fish1.length} 
 
 def clever_octopus(fish)
 	biggest_fish = ""
@@ -52,3 +52,14 @@ puts "Clever Octopus returns:"
 puts clever_octopus(FISH)
 
 
+tiles_array = ["up", "right-up", "right", "right-down", "down", "left-down", "left",  "left-up" ]
+
+def slow_dance(dir, tiles)
+	tiles.each_with_index { |tile, i| return i if tile == dir}
+end
+
+puts "Slow Dance checks:"
+puts slow_dance("up", tiles_array)
+puts slow_dance("right-down", tiles_array)
+
+#tiles_array = ["up", "right-up", "right", "right-down", "down", "left-down", "left",  "left-up" ]
