@@ -20,7 +20,8 @@
     end
 
     def show
-      cache
+      p cache
+      nil
     end
 
     private
