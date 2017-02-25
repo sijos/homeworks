@@ -61,6 +61,6 @@ Shoulda::Matchers.configure do |config|
     # Choose a test framework:
     with.test_framework :rspec
     # Choose one or more libraries:
-    with.library :active_record
+    with.library :rails
   end
 end
