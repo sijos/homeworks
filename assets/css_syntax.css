@@ -1,18 +1,17 @@
 body {
   font-family: arial, sans-serif;
   background-color: DarkSalmon;
-  width: 900px;
+  width: 65%;
   margin: 0 auto;
 }
 
 section {
-  width: 700px;
   display: inline-block;
   vertical-align: top;
+  padding-bottom: 5px;
 }
 
 aside {
-  width: 180px;
   display: inline-block;
   margin-right: 15px;
   vertical-align: top;
@@ -80,8 +79,18 @@ input[type="radio"]:checked {
 }
 
 nav {
-  display: inline-block;
+  float: right;
   padding: 20px;
+}
+
+header img {
+  float: left;
+}
+
+header:after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
 nav ul li {
