@@ -23,43 +23,15 @@
       <img src ="https://upload.wikimedia.org/wikipedia/commons/7/7e/Appacademylogo.png" width="75" height="75"/>
       <nav>
         <ul>
-          <li><a href=#Description>Description</a></li>
-          <li><a href=#Ingredients>Ingredients</a></li>
-          <li><a href=#Directions>Directions</a></li>
+          <li><a href=#description>Description</a></li>
+          <li><a href=#ingredients>Ingredients</a></li>
+          <li><a href=#directions>Directions</a></li>
         <ul>
       </nav>
     </header>
 
-    <h1>Guacamole</h1>
-    <br>
-    <section>
-      <figure>
-        <img src="http://mylatinatable.com/wp-content/uploads/2016/02/guacamole-foto-heroe.jpg" width="400" height="282" />
-      </figure>
-      <figcaption>
-        <a href=https://en.wikipedia.org/wiki/Guacamole>Wikipedia on Guacamole</a>
-      </figcaption>
-      <h2>How to make perfect guacamole</h2> <a name="Description" />
-      <p>
-        Guacamole, a dip made from avocados, is originally from Mexico. The name is derived from two Aztec Nahuatl words—ahuacatl (avocado) and molli (sauce).
-        The trick to making perfect guacamole is using good, ripe avocados. Check for ripeness by gently pressing the outside of the avocado. If there is no give, the avocado is not ripe yet and will not taste good. If there is a little give, the avocado is ripe. If there is a lot of give, the avocado may be past ripe and not good. In this case, taste test first before using.
-        <br>
-      </p>
-
-      <h2>Directions</h2> <a name="Directions" />
-      <ol>
-        <li>Cut the avocados in half. Remove seed.</li>
-        <li>Score the inside of the avocado with a blunt knife and scoop out the flesh with a spoon. Place in a bowl.</li>
-        <li>Using a fork, roughly mash the avocado. (Don't overdo it! The guacamole should be a little chunky.)</li>
-        <li>Sprinkle with salt and lime (or lemon) juice. The acid in the lime juice will provide some balance to the richness of the avocado and will help delay the avocados from turning brown.</li>
-        <li>Add the chopped onion, cilantro, black pepper, and chiles. Start with a half of one chili pepper and add to the guacamole to your desired degree of spiciness.</li>
-        <li>Place plastic wrap on the surface of the guacamole cover it and to prevent air reaching it. Refrigerate until ready to serve.</li>
-        <li>Chilling tomatoes hurts their flavor, so if you want to add chopped tomato to your guacamole, add it just before serving.</li>
-      </ol>
-    </section>
-
     <aside>
-      <h2>Ingredients</h2> <a name="Ingredients" />
+      <h2 id="ingredients">Ingredients</h2>
       <ul class="ingredients-list">
         <li>2 ripe avocados</li>
         <li>1/2 teaspoon Kosher salt</li>
@@ -72,20 +44,46 @@
       </ul>
     </aside>
 
+    <section>
+      <h1>Guacamole</h1>
+      <br>
+      <figure>
+        <img src="http://mylatinatable.com/wp-content/uploads/2016/02/guacamole-foto-heroe.jpg" width="400" height="282" />
+      </figure>
+      <figcaption>
+        <a href=https://en.wikipedia.org/wiki/Guacamole>Wikipedia on Guacamole</a>
+      </figcaption>
+      <h2 id="descripton">How to make perfect guacamole</h2>
+      <p>
+        Guacamole, a dip made from avocados, is originally from Mexico. The name is derived from two Aztec Nahuatl words—ahuacatl (avocado) and molli (sauce).
+        The trick to making perfect guacamole is using good, ripe avocados. Check for ripeness by gently pressing the outside of the avocado. If there is no give, the avocado is not ripe yet and will not taste good. If there is a little give, the avocado is ripe. If there is a lot of give, the avocado may be past ripe and not good. In this case, taste test first before using.
+        <br>
+      </p>
+
+      <h2 id="directions">Directions</h2>
+      <ol>
+        <li>Cut the avocados in half. Remove seed.</li>
+        <li>Score the inside of the avocado with a blunt knife and scoop out the flesh with a spoon. Place in a bowl.</li>
+        <li>Using a fork, roughly mash the avocado. (Don't overdo it! The guacamole should be a little chunky.)</li>
+        <li>Sprinkle with salt and lime (or lemon) juice. The acid in the lime juice will provide some balance to the richness of the avocado and will help delay the avocados from turning brown.</li>
+        <li>Add the chopped onion, cilantro, black pepper, and chiles. Start with a half of one chili pepper and add to the guacamole to your desired degree of spiciness.</li>
+        <li>Place plastic wrap on the surface of the guacamole cover it and to prevent air reaching it. Refrigerate until ready to serve.</li>
+        <li>Chilling tomatoes hurts their flavor, so if you want to add chopped tomato to your guacamole, add it just before serving.</li>
+      </ol>
+
+
     <section id="reviews">
       <h2>User Reviews</h2>
       <form id="review-form" action = "/reviews" method = "post">
         <label for="reviewer name">Reviewer name:</label>
         <input type="text" id="reviewer">
 
-        <label for="rating">Rating:</label>
         <input type="radio" name="rating" value =1 checked> 1
         <input type="radio" name="rating" value =2> 2
         <input type="radio" name="rating" value =3> 3
         <input type="radio" name="rating" value =4> 4
         <input type="radio" name="rating" value =5> 5
 
-        <label for="cooking expertise">Cooking Expertise:</label>
         <select name="expertise">
           <option value="Select Cooking Expertise" disabled selected>Select Cooking Expertise</option>
           <option value="Sometimes Cook">Sometimes Cook</option>
@@ -94,12 +92,12 @@
           <option value="Professional Chef">Professional Chef</option>
         </select>
 
-        <label for="review" id="reviewer">Review:
-          <textarea name = "review" cols="40" rows="5"></textarea>
-        </label>
-        <input type="submit" value="Submit">
+        <textarea name = "review" cols="40" rows="5"
+          placeholder="Your review here"></textarea>
+        <input type="submit" value="Submit Review">
       </form>
     </section>
+  </section>
     <!--Original recipe from Elise Bauer at Simply Recipes: http://www.simplyrecipes.com/recipes/perfect_guacamole/ -->
   </body>
 
