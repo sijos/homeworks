@@ -14,7 +14,6 @@ section {
 aside {
   display: inline-block;
   margin-right: 15px;
-  vertical-align: top;
 }
 
 h1 {
@@ -117,4 +116,49 @@ select {
 }
 textarea {
   width: 350px;
+}
+
+.burger-dd {
+  display: none;
+}
+
+@media all and (max-width: 730px) {
+  nav ul {
+    display: none;
+  }
+
+  .burger-dd > ul {
+    display: none;
+  }
+
+  .burger-dd {
+    display: block;
+  }
+
+  .burger-dd > li {
+    background: url(../assets/hamburger.png);
+    background-size: 50px 50px;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .burger-dd ul {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    box-shadow: black 5px 5px 10px;
+  }
+
+  .burger-dd:hover ul {
+    display: block;
+    background: ghostwhite;
+    width: 115px;
+    position: absolute;
+  }
+
+  .burger-dd ul li:hover a{
+    text-decoration: underline;
+  }
 }
