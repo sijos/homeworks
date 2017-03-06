@@ -37,10 +37,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // adding new photos
 
+
   const togglePhotoForm = (e) => {
+    const form = document.querySelector('.photo-form-container');
+    if (Array.from(form.classList).includes("hidden")) {
+      form.className = "photo-form-container";
+    } else {
+      form.className = "photo-form-container hidden";
+    }
+  };
 
-  }
+  const pForm = document.querySelector('.photo-show-button');
+  pForm.addEventListener("click", togglePhotoForm);
 
-
+  const photoSubmit = document.querySelector('.photo-url-submit');
+  photoSubmit.addEventListener("click", (e) => {
+    e.preventDefault();
+    
+    const ul = document.querySelector(".dog-photos");
+    const li = document.createElement("li");
+    const img = document.createElement("img");
+    img.src = document.querySelector('.photo-url-input').value;
+    li.appendChild(img);
+    ul.appendChild(li);
+  });
 
 });
