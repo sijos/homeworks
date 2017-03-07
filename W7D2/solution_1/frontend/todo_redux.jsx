@@ -11,4 +11,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const root = document.getElementById('content');
   ReactDOM.render(<Root store={store} />, root);
+
 });
+
+
+
+// const applyMiddlewares = (store, ...middlewares) => {
+//   let dispatch = store.dispatch;
+//   middlewares.forEach((middleware) => {
+//     dispatch = middleware(store)(dispatch);
+//   });
+//   return Object.assign({}, store, { dispatch });
+// };
