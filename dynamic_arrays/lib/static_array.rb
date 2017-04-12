@@ -2,17 +2,17 @@
 class StaticArray
   def initialize(length)
     @length = length
-    @array = Array.new(length)
+    @store = Array.new(length)
   end
 
   # O(1)
   def [](index)
-    @array[index]
+    @store[index]
   end
 
   # O(1)
   def []=(index, value)
-    @array[index] = value
+    @store[index] = value
   end
 
   protected
