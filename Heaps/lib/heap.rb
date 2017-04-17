@@ -1,6 +1,7 @@
 class BinaryMinHeap
   def initialize(&prc)
     @store = []
+    # @prc ||= Proc.new { |el1, el2| el1 <=> el2 }
   end
 
   def count
