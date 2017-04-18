@@ -1,3 +1,5 @@
+require 'Byebug'
+
 class QuickSort
   # Quick sort has average case time complexity O(nlogn), but worst
   # case O(n**2).
@@ -18,5 +20,20 @@ class QuickSort
   end
 
   def self.partition(array, start, length, &prc)
+    pivot = array[start]
+    barrier = start + 1
+    i = start + 1
+    while i < start + length
+      if array[i] < pivot && i > barrier
+        array[barrier], array[i] = array[i], array[barrier]
+        barrier += 1
+      elsif
+        array[i] < pivot
+        barrier += 1
+      end
+      i += 1
+    end
+    array[start], array[barrier - 1] = array[barrier - 1], array[start]
+    barrier - 1
   end
 end
