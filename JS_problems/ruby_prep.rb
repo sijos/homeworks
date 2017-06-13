@@ -6,7 +6,12 @@
 
 
 def compound_words?(array, target)
-  # your code here
+  array.each_with_index do |word1, idx1|
+    array.each_with_index do |word2, idx2|
+      return true if word1 + word2 == target && idx1 != idx2
+    end
+  end
+  false
 end
 
 puts "------Compound Words------"
