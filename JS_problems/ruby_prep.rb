@@ -33,6 +33,7 @@ puts compound_words?(["bye", "bye", "greetings"], "byebye") == true
 
 def cats_in_hats
   cats = [false] * 100
+  hatted = []
 
   (1..100).each do |pass_num|
     cats.each_index do |cat_idx|
@@ -40,7 +41,6 @@ def cats_in_hats
     end
   end
   
-  hatted = []
   cats.each_with_index do |cat, idx|
     hatted << idx + 1 if cat
   end
