@@ -35,9 +35,33 @@
 #  #####
 # ######
 
-n = gets.strip.to_i
+# SOLUTION
 
-(1..n).each do |stair_num|
-  spaces = n - stair_num
-  puts (" " * spaces) + ("#" * stair_num)
+# n = gets.strip.to_i
+
+# (1..n).each do |stair_num|
+#   spaces = n - stair_num
+#   puts (" " * spaces) + ("#" * stair_num)
+# end
+
+
+# Mini Max
+
+# Sample Input
+
+# 1 2 3 4 5
+# Sample Output
+
+# 10 14
+
+arr = gets.strip
+arr = arr.split(' ').map(&:to_i)
+
+sums = []
+(0..4).each do |idx|
+  temp = arr.dup
+  temp.delete_at(idx)
+  sums << temp.reduce(:+)
 end
+
+puts "#{sums.min} #{sums.max}"
