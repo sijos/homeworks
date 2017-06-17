@@ -78,13 +78,37 @@
 
 # 2
 
-def birthdayCakeCandles(n, ar)
-    tallest = ar.max
-    ar.select{|el| el == tallest}.count
+# def birthdayCakeCandles(n, ar)
+#     tallest = ar.max
+#     ar.select{|el| el == tallest}.count
+# end
+
+# n = gets.strip.to_i
+# ar = gets.strip
+# ar = ar.split(' ').map(&:to_i)
+# result = birthdayCakeCandles(n, ar)
+# puts result;
+
+# Time Conversion
+
+# Sample Input
+
+# 07:05:45PM
+# Sample Output
+
+# 19:05:45
+
+def timeConversion(s)
+    return "12:00:00" if s == "12:00:00PM"
+    
+    am_pm = s[8..9]
+    time = s[0..7].split(":")
+    time[0] = "00" if time[0] == "12" && am_pm == "AM"
+    time[0] = (time[0].to_i + 12).to_s if am_pm == "PM" && time[0].to_i < 12
+
+    time.join(":")
 end
 
-n = gets.strip.to_i
-ar = gets.strip
-ar = ar.split(' ').map(&:to_i)
-result = birthdayCakeCandles(n, ar)
+s = gets.strip
+result = timeConversion(s)
 puts result;
