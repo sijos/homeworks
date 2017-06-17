@@ -54,14 +54,37 @@
 
 # 10 14
 
-arr = gets.strip
-arr = arr.split(' ').map(&:to_i)
+# SOLUTION
 
-sums = []
-(0..4).each do |idx|
-  temp = arr.dup
-  temp.delete_at(idx)
-  sums << temp.reduce(:+)
+# arr = gets.strip
+# arr = arr.split(' ').map(&:to_i)
+
+# sums = []
+# (0..4).each do |idx|
+#   temp = arr.dup
+#   temp.delete_at(idx)
+#   sums << temp.reduce(:+)
+# end
+
+# puts "#{sums.min} #{sums.max}"
+
+# Birthday Cake
+
+# Sample Input 0
+
+# 4
+# 3 2 1 3
+# Sample Output 0
+
+# 2
+
+def birthdayCakeCandles(n, ar)
+    tallest = ar.max
+    ar.select{|el| el == tallest}.count
 end
 
-puts "#{sums.min} #{sums.max}"
+n = gets.strip.to_i
+ar = gets.strip
+ar = ar.split(' ').map(&:to_i)
+result = birthdayCakeCandles(n, ar)
+puts result;
