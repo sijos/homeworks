@@ -133,22 +133,35 @@
 
 # Yes
 
-s = gets.strip
-t = gets.strip
-k = gets.strip.to_i
+# s = gets.strip
+# t = gets.strip
+# k = gets.strip.to_i
 
 
-shorter = (s.length < t.length) ? s : t
-i = 0
-while s[i] == t[i] && i < shorter.length
-    i += 1
+# shorter = (s.length < t.length) ? s : t
+# i = 0
+# while s[i] == t[i] && i < shorter.length
+#     i += 1
+# end
+
+# min = s.length + t.length - 2 * i
+# max = s.length + t.length
+
+# if k >= max || (k >= min && (k - min) % 2 == 0)
+#   puts "Yes"
+# else
+#   puts "No"
+# end
+
+
+t = gets.strip.to_i
+arr = []
+t.times do
+  pair = gets.strip
+  arr << pair.split(' ').map(&:to_i)
 end
 
-min = s.length + t.length - 2 * i
-max = s.length + t.length
-
-if k >= max || (k >= min && (k - min) % 2 == 0)
-  puts "Yes"
-else
-  puts "No"
+arr.each do |pair|
+  puts Math.sqrt(pair[0]).ceil.upto(Math.sqrt(pair[1]).floor).size
 end
+
