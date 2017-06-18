@@ -154,14 +154,42 @@
 # end
 
 
-t = gets.strip.to_i
-arr = []
-t.times do
-  pair = gets.strip
-  arr << pair.split(' ').map(&:to_i)
-end
+# t = gets.strip.to_i
+# arr = []
+# t.times do
+#   pair = gets.strip
+#   arr << pair.split(' ').map(&:to_i)
+# end
 
-arr.each do |pair|
-  puts Math.sqrt(pair[0]).ceil.upto(Math.sqrt(pair[1]).floor).size
+# arr.each do |pair|
+#   puts Math.sqrt(pair[0]).ceil.upto(Math.sqrt(pair[1]).floor).size
+# end
+
+
+# Sample Input
+
+# 9 6 2015
+# 6 6 2015
+# Sample Output
+
+# 45
+
+d1,m1,y1 = gets.strip.split(' ')
+d1 = d1.to_i
+m1 = m1.to_i
+y1 = y1.to_i
+d2,m2,y2 = gets.strip.split(' ')
+d2 = d2.to_i
+m2 = m2.to_i
+y2 = y2.to_i
+
+if y1 - y2 > 0
+  puts 10000
+elsif m1 - m2 > 0 && y1 == y2
+  puts 500 * (m1 - m2)
+elsif d1 - d2 > 0 && y1 == y2 && m1 == m2
+  puts 15 * (d1 - d2)
+else
+  puts 0
 end
 
