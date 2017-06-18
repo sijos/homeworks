@@ -98,17 +98,57 @@
 
 # 19:05:45
 
-def timeConversion(s)
-    return "12:00:00" if s == "12:00:00PM"
+# def timeConversion(s)
+#     return "12:00:00" if s == "12:00:00PM"
     
-    am_pm = s[8..9]
-    time = s[0..7].split(":")
-    time[0] = "00" if time[0] == "12" && am_pm == "AM"
-    time[0] = (time[0].to_i + 12).to_s if am_pm == "PM" && time[0].to_i < 12
+#     am_pm = s[8..9]
+#     time = s[0..7].split(":")
+#     time[0] = "00" if time[0] == "12" && am_pm == "AM"
+#     time[0] = (time[0].to_i + 12).to_s if am_pm == "PM" && time[0].to_i < 12
 
-    time.join(":")
-end
+#     time.join(":")
+# end
+
+# s = gets.strip
+# result = timeConversion(s)
+# puts result;
+
+# Append and Delete
+
+# Sample Input 0
+
+# hackerhappy
+# hackerrank
+# 9
+# Sample Output 0
+
+# Yes
+
+# Sample Input 1
+
+# aba
+# aba
+# 7
+# Sample Output 1
+
+# Yes
 
 s = gets.strip
-result = timeConversion(s)
-puts result;
+t = gets.strip
+k = gets.strip.to_i
+
+
+shorter = (s.length < t.length) ? s : t
+i = 0
+while s[i] == t[i] && i < shorter.length
+    i += 1
+end
+
+min = s.length + t.length - 2 * i
+max = s.length + t.length
+
+if k >= max || (k >= min && (k - min) % 2 == 0)
+  puts "Yes"
+else
+  puts "No"
+end
