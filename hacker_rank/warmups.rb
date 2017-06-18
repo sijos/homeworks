@@ -174,22 +174,42 @@
 
 # 45
 
-d1,m1,y1 = gets.strip.split(' ')
-d1 = d1.to_i
-m1 = m1.to_i
-y1 = y1.to_i
-d2,m2,y2 = gets.strip.split(' ')
-d2 = d2.to_i
-m2 = m2.to_i
-y2 = y2.to_i
+# d1,m1,y1 = gets.strip.split(' ')
+# d1 = d1.to_i
+# m1 = m1.to_i
+# y1 = y1.to_i
+# d2,m2,y2 = gets.strip.split(' ')
+# d2 = d2.to_i
+# m2 = m2.to_i
+# y2 = y2.to_i
 
-if y1 - y2 > 0
-  puts 10000
-elsif m1 - m2 > 0 && y1 == y2
-  puts 500 * (m1 - m2)
-elsif d1 - d2 > 0 && y1 == y2 && m1 == m2
-  puts 15 * (d1 - d2)
-else
-  puts 0
+# if y1 - y2 > 0
+#   puts 10000
+# elsif m1 - m2 > 0 && y1 == y2
+#   puts 500 * (m1 - m2)
+# elsif d1 - d2 > 0 && y1 == y2 && m1 == m2
+#   puts 15 * (d1 - d2)
+# else
+#   puts 0
+# end
+
+# Sample Input 0
+
+# 6
+# 5 4 4 2 2 8
+# Sample Output 0
+
+# 6
+# 4
+# 2
+# # 1
+
+n = gets.strip.to_i
+arr = gets.strip
+arr = arr.split(' ').map(&:to_i)
+
+until arr.empty?
+  puts arr.size
+  cut_length = arr.min
+  arr.map!{ |el| el - cut_length }.select!{ |el| el > 0 }
 end
-
