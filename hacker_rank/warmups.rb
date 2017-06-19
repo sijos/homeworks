@@ -294,20 +294,29 @@
 
 # 3
 
+# n = gets.strip.to_i
+# c = gets.strip
+# c = c.split(' ').map(&:to_i)
+
+# position = 0
+# jumps = 0
+
+# until position == c.length - 1
+#   if c[position + 2] == 0
+#     position += 2
+#   else
+#     position += 1
+#   end
+#   jumps += 1
+# end
+
+# puts jumps
+
 n = gets.strip.to_i
-c = gets.strip
-c = c.split(' ').map(&:to_i)
+arr = gets.strip
+arr = arr.split(' ').map(&:to_i)
 
-position = 0
-jumps = 0
+counts = arr.inject(Hash.new(0)) { |h, v| h[v] += 1; h }
+most_common = arr.max_by { |v| counts[v] }
 
-until position == c.length - 1
-  if c[position + 2] == 0
-    position += 2
-  else
-    position += 1
-  end
-  jumps += 1
-end
-
-puts jumps
+puts arr.length - arr.select{|el| el == most_common}.length
