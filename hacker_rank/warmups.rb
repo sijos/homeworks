@@ -113,3 +113,37 @@
 # result = timeConversion(s)
 # puts result;
 
+# Diagonal Difference
+
+# Sample Input
+
+# 3
+# 11 2 4
+# 4 5 6
+# 10 8 -12
+
+# Sample Output
+
+# 15
+
+n = gets.strip.to_i
+a = Array.new(n)
+for a_i in (0..n-1)
+    a_t = gets.strip
+    a[a_i] = a_t.split(' ').map(&:to_i)
+end
+
+sum1 = 0
+sum2 = 0
+col1 = 0
+col2 = n - 1
+
+for row in (0..n-1)
+  sum1 += a[row][col1]
+  sum2 += a[row][col2]
+  col1 += 1
+  col2 -= 1
+end
+
+puts (sum1 - sum2).abs
+  
