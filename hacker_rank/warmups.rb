@@ -265,13 +265,49 @@
 
 # puts conflicts.keys.size
 
-s = gets.strip
-n = gets.strip.to_i
+# s = gets.strip
+# n = gets.strip.to_i
 
-a_count = (n / s.length) * s.count('a')
-remainder = n % s.length
-remainder.times do |num|
-  a_count += 1 if s[num] == 'a'
+# a_count = (n / s.length) * s.count('a')
+# remainder = n % s.length
+# remainder.times do |num|
+#   a_count += 1 if s[num] == 'a'
+# end
+
+# puts a_count
+
+# Sample Input 0
+
+# 7
+# 0 0 1 0 0 1 0
+
+# Sample Output 0
+
+# 4
+
+# Sample Input 1
+
+# 6
+# 0 0 0 0 1 0
+
+# Sample Output 1
+
+# 3
+
+n = gets.strip.to_i
+c = gets.strip
+c = c.split(' ').map(&:to_i)
+
+position = 0
+jumps = 0
+
+until position == c.length - 1
+  if c[position + 2] == 0
+    position += 2
+  else
+    position += 1
+  end
+  jumps += 1
 end
 
-puts a_count
+puts jumps
