@@ -204,12 +204,63 @@
 # 2
 # # 1
 
-n = gets.strip.to_i
+# n = gets.strip.to_i
+# arr = gets.strip
+# arr = arr.split(' ').map(&:to_i)
+
+# until arr.empty?
+#   puts arr.size
+#   cut_length = arr.min
+#   arr.map!{ |el| el - cut_length }.select!{ |el| el > 0 }
+# end
+
+
+# Sample Input
+
+# 4 3
+# 1 7 2 4
+# Sample Output
+
+# 3
+
+nk = gets.strip
+nk = nk.split(' ').map(&:to_i)
+n = nk[0]
+k = nk[1]
 arr = gets.strip
 arr = arr.split(' ').map(&:to_i)
 
-until arr.empty?
-  puts arr.size
-  cut_length = arr.min
-  arr.map!{ |el| el - cut_length }.select!{ |el| el > 0 }
+remainders = [0] * k
+arr.each{|val| remainders[val % k] += 1}
+
+count = 0
+count += [remainders[0], 1].min
+
+(1..(remainders.length / 2)).each do |i|
+  if i != remainders.length - i
+    count += [remainders[i], remainders[remainders.length - i]].max
+  else
+    count += [remainders[i], 1].min
+  end
 end
+
+puts count
+
+# conflicts = {}
+# arr.each { |num| conflicts[num] = 0 }
+# arr.each do |n1|
+#   others = arr.dup.reject{|el| el == n1}
+#   others.each do |n2|
+#     conflicts[n1] += 1 if (n1 + n2) % k == 0
+#   end
+# end
+
+# until conflicts.values.reduce(:+) == 0
+#   worst = conflicts.select{ |num, c| c == conflicts.values.max }
+#   conflicts.each do |num, c|
+#     conflicts[num] -= 1 if (worst.keys[0] + num) % k == 0
+#   end
+#   conflicts.delete(worst.keys[0])
+# end
+
+# puts conflicts.keys.size
