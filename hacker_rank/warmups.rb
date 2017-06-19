@@ -223,28 +223,28 @@
 
 # 3
 
-nk = gets.strip
-nk = nk.split(' ').map(&:to_i)
-n = nk[0]
-k = nk[1]
-arr = gets.strip
-arr = arr.split(' ').map(&:to_i)
+# nk = gets.strip
+# nk = nk.split(' ').map(&:to_i)
+# n = nk[0]
+# k = nk[1]
+# arr = gets.strip
+# arr = arr.split(' ').map(&:to_i)
 
-remainders = [0] * k
-arr.each{|val| remainders[val % k] += 1}
+# remainders = [0] * k
+# arr.each{|val| remainders[val % k] += 1}
 
-count = 0
-count += [remainders[0], 1].min
+# count = 0
+# count += [remainders[0], 1].min
 
-(1..(remainders.length / 2)).each do |i|
-  if i != remainders.length - i
-    count += [remainders[i], remainders[remainders.length - i]].max
-  else
-    count += [remainders[i], 1].min
-  end
-end
+# (1..(remainders.length / 2)).each do |i|
+#   if i != remainders.length - i
+#     count += [remainders[i], remainders[remainders.length - i]].max
+#   else
+#     count += [remainders[i], 1].min
+#   end
+# end
 
-puts count
+# puts count
 
 # conflicts = {}
 # arr.each { |num| conflicts[num] = 0 }
@@ -264,3 +264,14 @@ puts count
 # end
 
 # puts conflicts.keys.size
+
+s = gets.strip
+n = gets.strip.to_i
+
+a_count = (n / s.length) * s.count('a')
+remainder = n % s.length
+remainder.times do |num|
+  a_count += 1 if s[num] == 'a'
+end
+
+puts a_count
