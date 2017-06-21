@@ -65,24 +65,51 @@
 
 # okffng-Qwvb
 
-n = gets.strip.to_i
-s = gets.strip
-k = gets.strip.to_i
+# n = gets.strip.to_i
+# s = gets.strip
+# k = gets.strip.to_i
 
-lower = ('a'..'z').to_a
-upper = ('A'..'Z').to_a
+# lower = ('a'..'z').to_a
+# upper = ('A'..'Z').to_a
 
-new_str = ""
+# new_str = ""
 
-s.each_char do |ch|
-  if lower.include?(ch)
-    new_str << lower[((lower.index(ch) + k) % 26)]
-  elsif upper.include?(ch)
-    new_str << upper[((upper.index(ch) + k) % 26)]
+# s.each_char do |ch|
+#   if lower.include?(ch)
+#     new_str << lower[((lower.index(ch) + k) % 26)]
+#   elsif upper.include?(ch)
+#     new_str << upper[((upper.index(ch) + k) % 26)]
+#   else
+#     new_str << ch
+#   end
+# end
+
+# puts new_str
+    
+# Sample Input 0
+
+# SOSSPSSQSSOR
+
+# Sample Output 0
+
+# 3
+# Sample Input 1
+
+# SOSSOT
+
+# Sample Output 1
+
+# 1
+
+S = gets.strip
+
+changes = 0
+S.each_char.with_index do |ch, idx|
+  if (idx - 1) % 3 == 0
+    changes += 1 unless ch == "O"
   else
-    new_str << ch
+    changes += 1 unless ch == "S"
   end
 end
 
-puts new_str
-    
+puts changes
