@@ -101,15 +101,36 @@
 
 # 1
 
-S = gets.strip
+# S = gets.strip
 
-changes = 0
-S.each_char.with_index do |ch, idx|
-  if (idx - 1) % 3 == 0
-    changes += 1 unless ch == "O"
-  else
-    changes += 1 unless ch == "S"
+# changes = 0
+# S.each_char.with_index do |ch, idx|
+#   if (idx - 1) % 3 == 0
+#     changes += 1 unless ch == "O"
+#   else
+#     changes += 1 unless ch == "S"
+#   end
+# end
+
+# puts changes
+
+# Sample Input 0
+
+# 2
+# hereiamstackerrank
+# hackerworld
+
+# Sample Output 0
+
+# YES
+# NO
+
+q = gets.strip.to_i
+for a0 in (0..q-1)
+  s = gets.strip
+  check = 'hackerrank'.split('')
+  s.each_char do |ch|
+    check.shift if ch == check[0]
   end
+  puts check.length > 0 ? "NO" : "YES"
 end
-
-puts changes
