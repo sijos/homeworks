@@ -28,28 +28,61 @@
 # end
 # puts counter + 1
 
-len = gets.strip.to_i
+# len = gets.strip.to_i
+# s = gets.strip
+
+# def check(word)
+#   for i in (0..word.length - 1)
+#     return false if word[i] == word[i+1]
+#   end
+#   word.chars.uniq.size <= 2
+# end
+
+# valid_words = []
+# letters = s.chars.uniq
+# pairs = []
+# letters.each_with_index do |el1, i1|
+#   letters.each_with_index do |el2, i2|
+#     pairs << [el1, el2] unless i1 == i2 || pairs.include?([el2, el1])
+#   end
+# end
+
+# pairs.each do |pair|
+#   temp = s.chars.select{|el| pair.include?(el)}.join('')
+#   valid_words << temp if check(temp)
+# end
+
+# puts valid_words.empty? ? 0 : valid_words.max_by(&:length).length
+
+
+# Sample Input
+
+# 11
+# middle-Outz
+# 2
+
+# Sample Output
+
+# okffng-Qwvb
+
+n = gets.strip.to_i
 s = gets.strip
+k = gets.strip.to_i
 
-def check(word)
-  for i in (0..word.length - 1)
-    return false if word[i] == word[i+1]
+lower = ('a'..'z').to_a
+upper = ('A'..'Z').to_a
+
+new_str = ""
+
+s.each_char do |ch|
+  if lower.include?(ch)
+    new_str << lower[((lower.index(ch) + k) % 26)]
+  elsif upper.include?(ch)
+    new_str << upper[((upper.index(ch) + k) % 26)]
+  else
+    new_str << ch
   end
-  word.chars.uniq.size <= 2
 end
 
-valid_words = []
-letters = s.chars.uniq
-pairs = []
-letters.each_with_index do |el1, i1|
-  letters.each_with_index do |el2, i2|
-    pairs << [el1, el2] unless i1 == i2 || pairs.include?([el2, el1])
-  end
-end
-
-pairs.each do |pair|
-  temp = s.chars.select{|el| pair.include?(el)}.join('')
-  valid_words << temp if check(temp)
-end
-
-puts valid_words.empty? ? 0 : valid_words.max_by(&:length).length
+puts new_str
+    
