@@ -324,20 +324,43 @@
 # result = solve(grades)
 # print result.join("\n")
 
-def getTotalX(a, b)
-  count = 0
-  (a.max..b.min).each do |num|
-    count += 1 if a.all?{|el| num % el == 0} && b.all?{|el| el % num == 0}
+# def getTotalX(a, b)
+#   count = 0
+#   (a.max..b.min).each do |num|
+#     count += 1 if a.all?{|el| num % el == 0} && b.all?{|el| el % num == 0}
+#   end
+#   count
+# end
+
+# n, m = gets.strip.split(' ')
+# n = n.to_i
+# m = m.to_i
+# a = gets.strip
+# a = a.split(' ').map(&:to_i)
+# b = gets.strip
+# b = b.split(' ').map(&:to_i)
+# total = getTotalX(a, b)
+# puts total;
+
+def getRecord(s)
+  highest, lowest = s[0], s[0]
+  h_count, l_count = 0, 0
+
+  s.each_with_index do |score, idx|
+    next if idx == 0
+    if score > highest
+      h_count += 1
+      highest = score
+    elsif score < lowest
+      l_count += 1
+      lowest = score
+    end
   end
-  count
+  [h_count, l_count]
 end
 
-n, m = gets.strip.split(' ')
-n = n.to_i
-m = m.to_i
-a = gets.strip
-a = a.split(' ').map(&:to_i)
-b = gets.strip
-b = b.split(' ').map(&:to_i)
-total = getTotalX(a, b)
-puts total;
+n = gets.strip.to_i
+s = gets.strip
+s = s.split(' ').map(&:to_i)
+result = getRecord(s)
+print result.join(" ")
