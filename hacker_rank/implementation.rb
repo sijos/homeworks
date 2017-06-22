@@ -218,83 +218,108 @@
 
 # 10
 
-n,k = gets.strip.split(' ')
-n = n.to_i
-k = k.to_i
-rQueen,cQueen = gets.strip.split(' ')
-rQueen = rQueen.to_i
-cQueen = cQueen.to_i
-grid = Array.new(n) { Array.new(n) { false } }
-for a0 in (0..k-1)
-    rObstacle,cObstacle = gets.strip.split(' ')
-    rObstacle = rObstacle.to_i
-    cObstacle = cObstacle.to_i
-    grid[n - rObstacle][cObstacle - 1] = "O"
+# n,k = gets.strip.split(' ')
+# n = n.to_i
+# k = k.to_i
+# rQueen,cQueen = gets.strip.split(' ')
+# rQueen = rQueen.to_i
+# cQueen = cQueen.to_i
+# grid = Array.new(n) { Array.new(n) { false } }
+# for a0 in (0..k-1)
+#     rObstacle,cObstacle = gets.strip.split(' ')
+#     rObstacle = rObstacle.to_i
+#     cObstacle = cObstacle.to_i
+#     grid[n - rObstacle][cObstacle - 1] = "O"
+# end
+
+# grid[n - rQueen][cQueen - 1] = "Q"
+
+# # vertical
+# row = rQueen + 1
+# while row <= n && grid[n - row][cQueen - 1] != "O"
+#   grid[n - row][cQueen - 1] = true
+#   row += 1
+# end
+
+# row = rQueen - 1
+# while row > 0 && grid[n - row][cQueen - 1] != "O"
+#   grid[n - row][cQueen - 1] = true
+#   row -= 1
+# end
+
+# # horizontal
+# col = cQueen + 1
+# while col <= n && grid[n - rQueen][col - 1] != "O"
+#   grid[n - rQueen][col - 1] = true
+#   col += 1
+# end
+
+# col = cQueen - 1
+# while col > 0 && grid[n - rQueen][col - 1] != "O"
+#   grid[n - rQueen][col - 1] = true
+#   col -= 1
+# end
+
+# # diagonal
+# # up left
+# row = rQueen + 1
+# col = cQueen - 1
+# while row <= n && col > 0 && grid[n - row][col - 1] != "O"
+#   grid[n - row][col - 1] = true
+#   row += 1
+#   col -= 1
+# end
+
+# # down left
+# row = rQueen - 1
+# col = cQueen - 1
+# while row > 0 && col > 0 && grid[n - row][col - 1] != "O"
+#   grid[n - row][col - 1] = true
+#   row -= 1
+#   col -= 1
+# end
+
+# # up right
+# row = rQueen + 1
+# col = cQueen + 1
+# while row <= n && col <= n && grid[n - row][col - 1] != "O"
+#   grid[n - row][col - 1] = true
+#   row += 1
+#   col += 1
+# end
+
+# # down right
+# row = rQueen - 1
+# col = cQueen + 1
+# while row > 0 && col <= n && grid[n - row][col - 1] != "O"
+#   grid[n - row][col - 1] = true
+#   row -= 1
+#   col += 1
+# end
+
+# puts grid.flatten.count(true)
+
+
+def solve(grades)
+  grades.map do |grade|
+    if grade < 38
+      grade
+    else
+      i = 0
+      i += 1 until (grade + i) % 5 == 0
+      if i < 3
+        grade += i
+      else
+        grade
+      end
+    end
+  end
 end
 
-grid[n - rQueen][cQueen - 1] = "Q"
-
-# vertical
-row = rQueen + 1
-while row <= n && grid[n - row][cQueen - 1] != "O"
-  grid[n - row][cQueen - 1] = true
-  row += 1
+n = gets.strip.to_i
+grades = Array.new(n)
+for grades_i in (0..n-1)
+    grades[grades_i] = gets.strip.to_i
 end
-
-row = rQueen - 1
-while row > 0 && grid[n - row][cQueen - 1] != "O"
-  grid[n - row][cQueen - 1] = true
-  row -= 1
-end
-
-# horizontal
-col = cQueen + 1
-while col <= n && grid[n - rQueen][col - 1] != "O"
-  grid[n - rQueen][col - 1] = true
-  col += 1
-end
-
-col = cQueen - 1
-while col > 0 && grid[n - rQueen][col - 1] != "O"
-  grid[n - rQueen][col - 1] = true
-  col -= 1
-end
-
-# diagonal
-# up left
-row = rQueen + 1
-col = cQueen - 1
-while row <= n && col > 0 && grid[n - row][col - 1] != "O"
-  grid[n - row][col - 1] = true
-  row += 1
-  col -= 1
-end
-
-# down left
-row = rQueen - 1
-col = cQueen - 1
-while row > 0 && col > 0 && grid[n - row][col - 1] != "O"
-  grid[n - row][col - 1] = true
-  row -= 1
-  col -= 1
-end
-
-# up right
-row = rQueen + 1
-col = cQueen + 1
-while row <= n && col <= n && grid[n - row][col - 1] != "O"
-  grid[n - row][col - 1] = true
-  row += 1
-  col += 1
-end
-
-# down right
-row = rQueen - 1
-col = cQueen + 1
-while row > 0 && col <= n && grid[n - row][col - 1] != "O"
-  grid[n - row][col - 1] = true
-  row -= 1
-  col += 1
-end
-
-puts grid.flatten.count(true)
+result = solve(grades)
+print result.join("\n")
