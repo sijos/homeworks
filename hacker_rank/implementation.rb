@@ -300,26 +300,44 @@
 # puts grid.flatten.count(true)
 
 
-def solve(grades)
-  grades.map do |grade|
-    if grade < 38
-      grade
-    else
-      i = 0
-      i += 1 until (grade + i) % 5 == 0
-      if i < 3
-        grade += i
-      else
-        grade
-      end
-    end
+# def solve(grades)
+#   grades.map do |grade|
+#     if grade < 38
+#       grade
+#     else
+#       i = 0
+#       i += 1 until (grade + i) % 5 == 0
+#       if i < 3
+#         grade += i
+#       else
+#         grade
+#       end
+#     end
+#   end
+# end
+
+# n = gets.strip.to_i
+# grades = Array.new(n)
+# for grades_i in (0..n-1)
+#     grades[grades_i] = gets.strip.to_i
+# end
+# result = solve(grades)
+# print result.join("\n")
+
+def getTotalX(a, b)
+  count = 0
+  (a.max..b.min).each do |num|
+    count += 1 if a.all?{|el| num % el == 0} && b.all?{|el| el % num == 0}
   end
+  count
 end
 
-n = gets.strip.to_i
-grades = Array.new(n)
-for grades_i in (0..n-1)
-    grades[grades_i] = gets.strip.to_i
-end
-result = solve(grades)
-print result.join("\n")
+n, m = gets.strip.split(' ')
+n = n.to_i
+m = m.to_i
+a = gets.strip
+a = a.split(' ').map(&:to_i)
+b = gets.strip
+b = b.split(' ').map(&:to_i)
+total = getTotalX(a, b)
+puts total;
