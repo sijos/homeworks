@@ -25,7 +25,7 @@ function solve(n, s, d, m){
   for (var i = 0; i < s.length; i++) {
     sum = 0;
     for (var j = 0; j < m; j++) { 
-      sum += s[i + j]
+      sum += s[i + j];
     }
     if (sum === d) {
       count++;
