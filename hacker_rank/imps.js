@@ -45,3 +45,28 @@ function main() {
     process.stdout.write("" + result + "\n");
 
 }
+
+// Migratory Birds
+function migratoryBirds(n, ar) {
+  let counts = ar.reduce(function(counter, el) {
+    let key = String(el);
+    counter[key] = counter.hasOwnProperty(key) ? counter[key] + 1 : 1;
+    return counter;
+  }, {})
+  let count_arr = [];
+  for (var type in counts) {
+    count_arr.push([type, counts[type]])
+  }
+
+  count_arr = count_arr.sort((a, b) => b[1] - a[1]);
+  return Number(count_arr[0][0]);
+}
+
+function main() {
+    var n = parseInt(readLine());
+    ar = readLine().split(' ');
+    ar = ar.map(Number);
+    var result = migratoryBirds(n, ar);
+    process.stdout.write("" + result + "\n");
+
+}
