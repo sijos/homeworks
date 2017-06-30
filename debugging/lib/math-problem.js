@@ -1,7 +1,7 @@
-import { renderFeedback } from './feedback';
+import { renderFeedback, getNumberFact } from './feedback';
 
 const getRandNum = () => {
-  Math.floor((Math.random() * 10) + 1);
+  return Math.floor((Math.random() * 10) + 1);
 }
 
 const getRandSymbol = () => {
@@ -19,21 +19,25 @@ const mathProblem = {
   firstNum: getRandNum(),
   secondNum: getRandNum(),
   operationSymbol: getRandSymbol(),
-  answer: () => {
-    eval(`${this.firstNum} ${this.operationSymbol} ${this.secondNum}`);
+  answer: function () {
+    return eval(`${this.firstNum} ${this.operationSymbol} ${this.secondNum}`);
   },
 };
 
-// Use the mathProblem obj to display the problem for the user
-const firstDisplayNum = document.getElementById('first-num');
-firstDisplayNum.innerHTML = mathProblem.firstNum;
-const displaySymbol = document.getElementById('operation');
-displaySymbol.innerHTML = mathProblem.operationSymbol;
-const secondDisplayNum = document.getElementById('second-num');
-secondDisplayNum.innerHTML = mathProblem.secondNum;
+document.addEventListener('DOMContentLoaded', () => {
+  // Use the mathProblem obj to display the problem for the user
+  const firstDisplayNum = document.getElementById('first-num');
+  firstDisplayNum.innerHTML = mathProblem.firstNum;
+  const displaySymbol = document.getElementById('operation');
+  displaySymbol.innerHTML = mathProblem.operationSymbol;
+  const secondDisplayNum = document.getElementById('second-num');
+  secondDisplayNum.innerHTML = mathProblem.secondNum;
+  getNumberFact(mathProblem.answer());
+});
 
 const evaluateAnswer = (event) => {
-  const userAnswer = event.currentTarget.children[5].value;
+  event.preventDefault();
+  const userAnswer = Number(event.currentTarget.children[5].value);
   renderFeedback(userAnswer === mathProblem.answer());
 }
 
