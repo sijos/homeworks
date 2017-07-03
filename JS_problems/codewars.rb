@@ -12,7 +12,18 @@ def replace_dashes_as_one(s)
   new_str
 end
 
-puts '----Replace Dashes As One----'
-puts replace_dashes_as_one("we-are- - - code----warriors.-") == "we-are- code-warriors.-"
-puts replace_dashes_as_one("a---b- - -c") == "a-b-c"
-puts replace_dashes_as_one("a------") == "a-"
+
+def mult_triangle(n)
+  return [1, 0, 1] if n == 1
+  total = 0
+  evens = 0
+  (1..n).each do |k|
+    (k...(k**2)).step(k) do |j|
+      total += j*2
+      evens += j*2 if j.even?
+    end
+    total += (k**2)
+    evens += (k**2) if (k**2).even?
+  end
+  [total, evens, total - evens]
+end
