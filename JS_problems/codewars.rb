@@ -37,10 +37,5 @@ end
 def dig_pow(n, p)
     digits = n.to_s.split('').map(&:to_i)
     sum = digits.map.with_index {|el, i| el ** (p + i)}.inject(:+)
-    k = 0
-    while n * k <= sum
-      return k if n * k == sum
-      k += 1
-    end
-    -1
+    sum % n == 0 ? (sum / n) : -1
 end
