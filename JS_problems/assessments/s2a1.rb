@@ -119,10 +119,14 @@ puts hashtagify("Learned about coding.", ["coding"]) == "Learned about #coding."
 
 def vigenere_cipher(string, key_sequence)
   alphabet = ("a".."z").to_a
-  #
-  # your code goes here
-  #
+  string.chars.map.with_index do |ch, idx|
+    key_idx = key_sequence[idx % key_sequence.length]
+    alph_idx = alphabet.index(ch)
+    alphabet[(alph_idx + key_idx) % 26]
+  end.join('')
 end
+
+# RATING: Hard
 
 puts "----Vigenere cipher----"
 puts vigenere_cipher("toerrishuman", [1]) == "upfssjtivnbo"
