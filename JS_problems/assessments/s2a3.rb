@@ -7,6 +7,11 @@
 # fibonacci numbers.
 
 def fib_sum(n)
+  return 0 if n <= 0
+  return 1 if n == 1
+  fibs = [1,1]
+  fibs << (fibs[-1] + fibs[-2]) until fibs.length == n
+  fibs.reduce(:+)
 end
 
 
