@@ -33,3 +33,14 @@ def iq_test(numbers)
   diff = arr.count(&:even?) > arr.count(&:odd?) ? arr.select(&:odd?)[0] : arr.select(&:even?)[0]
   arr.index(diff) + 1
 end
+
+def dig_pow(n, p)
+    digits = n.to_s.split('').map(&:to_i)
+    sum = digits.map.with_index {|el, i| el ** (p + i)}.inject(:+)
+    k = 0
+    while n * k <= sum
+      return k if n * k == sum
+      k += 1
+    end
+    -1
+end
