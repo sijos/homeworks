@@ -14,6 +14,8 @@ def fib_sum(n)
   fibs.reduce(:+)
 end
 
+# RATING: easy
+
 
 puts "_________fib_sum___________"
 puts fib_sum(0) == 0
@@ -39,6 +41,8 @@ def five_ws(string)
   end.join
 end
 
+# RATING: hard
+
 
 puts "_________five_ws____________"
 puts five_ws("Where can I find new shoes. I'm missing my favorite pair.") == "Where can I find new shoes? I'm missing my favorite pair."
@@ -58,6 +62,8 @@ def longest_pause(sentence)
   no_punc = sentence.delete(',.?!;:')
   no_punc.split.select{|word| word.include?('um')}.max_by(&:length).length
 end
+
+# RATING: hard
 
 puts "_______longest_pause________"
 puts longest_pause("ummmmmmm") == 8
@@ -79,8 +85,11 @@ puts longest_pause("ummmmm, I'm umm not sure.") == 6
 
 
 def cat_pairs(cat_names, cat_price)
-
+  valid_cats = cat_price.select{|cat, price| cat_names.include?(cat)}
+  valid_cats.min_by(2){|cat, price| price}.map{|cat| cat[0]}
 end
+
+# RATING: medium
 
 puts "_________cat_pairs__________"
 
