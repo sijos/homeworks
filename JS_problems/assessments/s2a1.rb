@@ -58,9 +58,9 @@ puts long_word_count("two reallylong words inthisstring") == 2
 # ex: calculate(2, [["+", 2], ["/",4 ]]) ==> (2 + 2) / 4 == 1
 
 def calculate(starting_value, operations)
-  #
-  # your code goes here
-  #
+  result = starting_value
+  operations.each { |op| result = [result, op[1]].reduce(op[0].to_sym) }
+  result
 end
 
 puts "-------Calculate-------"
