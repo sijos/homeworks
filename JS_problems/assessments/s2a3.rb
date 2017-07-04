@@ -29,7 +29,14 @@ puts fib_sum(60) == 4052739537880
 # who,  when.
 
 def five_ws(string)
-
+  five_dubs = %w(who why what where when)
+  string.split('.').map do |sen|
+    if sen.split(' ').any?{|word| five_dubs.include?(word.downcase)}
+      sen << '?'
+    else
+      sen << '.'
+    end
+  end.join
 end
 
 
