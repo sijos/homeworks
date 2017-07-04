@@ -32,7 +32,7 @@ def long_word_count(text)
   text.split(' ').count{|word| word.length > 7}
 end
 
-#easy
+# RATING: easy
 
 puts "-------Long Word Count-------"
 puts long_word_count("") == 0
@@ -63,6 +63,8 @@ def calculate(starting_value, operations)
   result
 end
 
+# RATING: medium
+
 puts "-------Calculate-------"
 puts calculate(3, [["*", 5]]) == 15
 puts calculate(2, [["+", 2], ["/",4 ]]) == 1
@@ -77,10 +79,16 @@ puts calculate(10, [["+", 1], ["+", 10], ['-', 3], ["/", 2]]) == 9
 # in the original string and return the updated cool string with hashtags.
 
 def hashtagify(sentence, tags)
-  #
-  # your code goes here
-  #
+  words = sentence.split(' ')
+  words.each_with_index do |word, idx|
+    tags.each do |tag|
+      words[idx] = word.insert(0, "#") if word.downcase.include?(tag)
+    end
+  end
+  words.join(" ")
 end
+
+# RATING: hard
 
 puts "-------Hashtagify-------"
 puts hashtagify("coding", ["coding"]) == "#coding"
