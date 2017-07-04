@@ -27,3 +27,9 @@ def mult_triangle(n)
   end
   [total, evens, total - evens]
 end
+
+def iq_test(numbers)
+  arr = numbers.split.map(&:to_i)
+  diff = arr.count(&:even?) > arr.count(&:odd?) ? arr.select(&:odd?)[0] : arr.select(&:even?)[0]
+  arr.index(diff) + 1
+end
