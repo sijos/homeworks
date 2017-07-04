@@ -54,7 +54,9 @@ puts five_ws("Who. What. Where. When.") == "Who? What? Where? When?"
 
 
 def longest_pause(sentence)
-
+  return 0 unless sentence.include?('um')
+  no_punc = sentence.delete(',.?!;:')
+  no_punc.split.select{|word| word.include?('um')}.max_by(&:length).length
 end
 
 puts "_______longest_pause________"
