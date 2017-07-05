@@ -158,10 +158,21 @@ puts dependent_definitions(dictionary, "apple") ==
 # repeated_chars("mississippi") => ["s", "s, "p"]
 # ------------------------------------------------------------------------------
 def repeated_chars(word)
-  #
-  # your code goes here
-  #
+  result = []
+  i = 0
+  while i < word.length
+    if word[i] == word[i+1]
+      result << word[i]
+      i += 1 until word[i] != result.last
+    else
+      i += 1
+    end
+  end
+  result
 end
+
+# RATING: medium / hard
+
 # ------------------------------------------------------------------------------
 puts "-------Repeated Chars-------"
 puts repeated_chars("cat") == []
