@@ -42,11 +42,13 @@
 #
 # NOTE: do not use the integer method lcm; that is, do not call a.lcm(b).
 
-def lcm(a, b)
+def lcm(a, b) 
   lcm = [a, b].max
   lcm += 1 until (lcm % a == 0) && (lcm % b == 0)
   lcm
 end
+
+# RATING: easy
 
 puts "-------Least Common Multiple-------"
 puts lcm(2, 3) == 6
@@ -64,16 +66,27 @@ puts lcm(50, 50) == 50
 # Assume all numbers are included as part of a range (no stand alone elements).
 
 def range_summary(array)
-  #
-  # your code goes here
-  #
+  ranges = []
+  sub = []
+  array.each_with_index do |el, idx|
+    if sub.empty?
+      sub << el 
+    elsif array[idx + 1] != el + 1 || idx == array.length - 1
+      sub << el
+      ranges << sub
+      sub = []
+    end
+  end
+  ranges
 end
+
+# RATING: medium
 
 puts "-------Range Summary-------"
 puts range_summary([0, 1]) == [[0, 1]]
-puts range_summary([0, 1, 4, 5]) == [[0, 1], [4, 5]]
-puts range_summary([0, 1, 3, 4, 6, 7]) == [[0, 1], [3, 4], [6, 7]]
-puts range_summary([0, 1, 2, 3, 4, 5, 7, 8, 9, 15, 16]) == [[0, 5], [7, 9], [15, 16]]
+p range_summary([0, 1, 4, 5]) == [[0, 1], [4, 5]]
+p range_summary([0, 1, 3, 4, 6, 7]) == [[0, 1], [3, 4], [6, 7]]
+p range_summary([0, 1, 2, 3, 4, 5, 7, 8, 9, 15, 16]) == [[0, 5], [7, 9], [15, 16]]
 # ------------------------------------------------------------------------------
 
 
