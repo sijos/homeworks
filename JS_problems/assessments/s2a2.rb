@@ -43,9 +43,9 @@
 # NOTE: do not use the integer method lcm; that is, do not call a.lcm(b).
 
 def lcm(a, b)
-  #
-  # your code goes here
-  #
+  lcm = [a, b].max
+  lcm += 1 until (lcm % a == 0) && (lcm % b == 0)
+  lcm
 end
 
 puts "-------Least Common Multiple-------"
