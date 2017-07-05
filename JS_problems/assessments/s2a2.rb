@@ -129,14 +129,13 @@ dictionary = {
 
 
 def dependent_definitions(dictionary, owners_hash)
-  #
-  # your code goes here
-  #
+  def_words = dictionary[owners_hash].split(' ')
+  dictionary.select{ |k, v| def_words.include?(k) }
 end
 
+# RATING : hard
+
 puts "-------Dependent Definitions-------"
-
-
 puts dependent_definitions(dictionary, "red") == {"pleasant" => "pure goodness"}
 puts dependent_definitions(dictionary, "tasty") == {"pleasant" => "pure goodness"}
 puts dependent_definitions(dictionary, "pleasant") == {}
