@@ -37,6 +37,8 @@ def maybe_zeroes(numbers, drop)
   end
 end
 
+# RATING: easy
+
 puts "-------Maybe Zeroes-------"
 
 puts maybe_zeroes([100, 505, 9, 1002], true) == 77
@@ -66,6 +68,8 @@ def swap_letters(sentence, letters)
   end.join
 end
 
+# RATING: easy
+
 puts "-------Letter Swap--------"
 puts swap_letters("I went to the dentist", ["n", "t"]) == "I wetn no nhe detnisn"
 puts swap_letters("I went to the dentist", ["t", "n"]) == "I wetn no nhe detnisn"
@@ -89,9 +93,13 @@ puts swap_letters("My name is Michael", ["A", "m"]) == "ay nmae is aichmel"
 #     								[2, 4]]
 # You may assume a square matrix as input. Do not use `.transpose`
 def transpose(matrix)
-	#
-	# your code goes here
-	#
+  result = Array.new(matrix.length) { Array.new(matrix.length) {nil} }
+  matrix.each_with_index do |row, row_idx|
+    row.each_with_index do |num, col_idx|
+      result[col_idx][row_idx] = num
+    end
+  end
+  result  
 end
 
 puts "-------Transpose-------"
