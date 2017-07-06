@@ -55,7 +55,15 @@ puts maybe_zeroes([43, 7, 98], false) == 148
 
 
 def swap_letters(sentence, letters)
-  # your code goes here
+  sentence.chars.map do |ch|
+    if ch.downcase == letters[0].downcase
+      letters[1].downcase
+    elsif ch.downcase == letters[1].downcase
+      letters[0].downcase
+    else
+      ch
+    end
+  end.join
 end
 
 puts "-------Letter Swap--------"
