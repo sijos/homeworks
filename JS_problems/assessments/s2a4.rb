@@ -30,7 +30,11 @@
 # return the sum.
 
 def maybe_zeroes(numbers, drop)
-# your codes goes here
+  if drop
+    numbers.map{|n| n.to_s.delete('0').to_i }.reduce(:+)
+  else
+    numbers.reduce(:+)
+  end
 end
 
 puts "-------Maybe Zeroes-------"
