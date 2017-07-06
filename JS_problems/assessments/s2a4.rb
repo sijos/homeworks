@@ -102,6 +102,8 @@ def transpose(matrix)
   result  
 end
 
+# RATING: hard
+
 puts "-------Transpose-------"
 matrix_one = [[1, 2],
 							[3, 4]]
@@ -150,6 +152,8 @@ def calculater(hash, input, start)
   end
   eval
 end
+
+# RATING: hard
 
 puts "---------Calculater---------"
 
