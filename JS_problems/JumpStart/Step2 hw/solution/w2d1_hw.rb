@@ -13,8 +13,28 @@
 
 def number_counting_seq(n)
   return "" if n == 0
-
+  sequence = ["1"]
+  sequence << next_seq(sequence.last) until sequence.length == n 
+  sequence.last
 end
+
+# 1211
+def next_seq(str)
+  result = ""
+  i = 0
+  repeats = 1
+  while i < str.length
+    if str[i] == str[i + 1]
+      repeats += 1
+    else
+      result << repeats.to_s + str[i]
+      repeats = 1
+    end
+    i += 1
+  end
+  result
+end
+
 
 
 
