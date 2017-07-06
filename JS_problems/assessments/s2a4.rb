@@ -140,7 +140,15 @@ puts transpose(matrix_three) == [[1, 5, 9, 13],
 
 
 def calculater(hash, input, start)
-  # your code goes here
+  eval = start
+  idx = 0
+  while idx < input.length
+    if hash.key?(input[idx])
+      eval = [eval, input[idx + 1]].reduce(hash[input[idx]].to_sym)
+    end
+    idx += 2
+  end
+  eval
 end
 
 puts "---------Calculater---------"
