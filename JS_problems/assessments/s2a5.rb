@@ -28,8 +28,13 @@ puts missing_numbers([0, 5]) == [1, 2, 3, 4]
 # Do not capitalize words like 'a', 'and', 'of', 'over' or 'the'.
 
 def titleize(title)
-
+  no_caps = %w(a and of the over)
+  title.split.map.with_index do |word, idx|
+    (idx == 0 || !no_caps.include?(word)) ? word.capitalize : word
+  end.join(' ')
 end
+
+# RATING: easy
 
 puts "-------Titleize-------"
 puts titleize("basketball") == "Basketball"
