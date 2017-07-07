@@ -73,8 +73,16 @@ puts unique_in_order('aAa') == ['a', 'A', 'a']
 # Be sure that the returned array is sorted.
 
 def substrings(string)
-
+  result = []
+  string.chars.each_index do |i1|
+    string.chars.each_index do |i2|
+      result << string[i1..i2]
+    end
+  end
+  result.uniq.reject{|el| el == ""}.sort
 end
+
+# RATING: hard
 
 puts "-------Substrings-------"
 puts substrings("") == []
