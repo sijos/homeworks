@@ -5,7 +5,13 @@
 # fill in the consecutive set.
 
 def missing_numbers(nums)
-
+  missing = []
+  next_cons = nums[0] + 1
+  while next_cons < nums.last
+    missing << next_cons unless nums.include?(next_cons)
+    next_cons += 1
+  end
+  missing
 end
 
 puts "-------Missing Numbers-------"
@@ -14,7 +20,7 @@ puts missing_numbers([2, 3, 7]) == [4, 5, 6]
 puts missing_numbers([-5, -1, 0, 3]) == [-4, -3, -2, 1, 2]
 puts missing_numbers([0, 5]) == [1, 2, 3, 4]
 
-
+# RATING: medium
 
 ### Titleize
 #
