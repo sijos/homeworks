@@ -51,7 +51,12 @@ puts titleize("the bridge over the river kwai") == "The Bridge over the River Kw
 # to each other. Preserve the original order of elements.
 
 def unique_in_order(string)
-
+  result = []
+  string.each_char.with_index do |ch, idx|
+    next if ch == string[idx + 1]
+    result << ch
+  end
+  result
 end
 
 puts "-------Unique in Order-------"
@@ -60,7 +65,7 @@ puts unique_in_order('BBBAAAACCDAABBB') == ['B', 'A', 'C', 'D', 'A', 'B']
 puts unique_in_order('ABBCcAD') == ['A', 'B', 'C', 'c', 'A', 'D']
 puts unique_in_order('aAa') == ['a', 'A', 'a']
 
-
+# RATING: medium
 
 # Substrings
 #
