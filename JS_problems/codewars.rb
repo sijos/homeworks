@@ -39,3 +39,12 @@ def dig_pow(n, p)
     sum = digits.map.with_index {|el, i| el ** (p + i)}.inject(:+)
     sum % n == 0 ? (sum / n) : -1
 end
+
+def find_even_index(arr)
+  arr.each_index do |i|
+    left = i == 0 ? 0 : arr[0..(i-1)].reduce(:+)
+    right = i == arr.length - 1 ? 0 : arr[(i+1)..-1].reduce(:+)
+    return i if left == right
+  end
+  -1
+end
