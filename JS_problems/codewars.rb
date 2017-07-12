@@ -48,3 +48,13 @@ def find_even_index(arr)
   end
   -1
 end
+
+def accum(s)
+	result = ""
+  s.chars.each_with_index do |ch, idx|
+    result << ch.upcase
+    idx.times { result << ch.downcase }
+    result << "-" unless idx == s.length - 1
+  end
+  result
+end
