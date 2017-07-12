@@ -66,3 +66,8 @@ end
 def repeat_str (n, s)
   s * n
 end
+
+def remainder(a, b)
+  return nil if a == 0 || b == 0
+  a.abs > b.abs ? a.abs % b.abs : b.abs % a.abs
+end
