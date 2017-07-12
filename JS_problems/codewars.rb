@@ -58,3 +58,7 @@ def accum(s)
   end
   result
 end
+
+def find_it(seq)
+  seq.each { |n| return n if seq.count(n).odd? }
+end
