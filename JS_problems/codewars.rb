@@ -62,3 +62,7 @@ end
 def find_it(seq)
   seq.each { |n| return n if seq.count(n).odd? }
 end
+
+def repeat_str (n, s)
+  s * n
+end
