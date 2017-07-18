@@ -9,9 +9,28 @@
 # ex. hipsterfy("towel flicker banana") => "towl flickr banan"
 
 def hipsterfy(sentence)
-  #
-  # your code goes here
-  #
+  sentence.split.map{ |word| hip_word(word) }.join(' ')
+end
+
+def hip_word(word)
+  vowels = %w(a e i o u)
+  needs_remove = true
+  new_word = ""
+  # rev = word.reverse
+  # last_v_index = rev.split('').index{|ch| vowels.include?(ch) }
+  # return word unless last_v_index
+  # word[0...last_v_index] + word[(last_v_index + 1)..-1]
+
+  idx = word.length - 1
+  while idx >= 0
+    if needs_remove && vowels.include?(word[idx])
+      needs_remove = false
+    else
+      new_word << word[idx]
+    end
+    idx -= 1
+  end
+  new_word.reverse
 end
 
 
