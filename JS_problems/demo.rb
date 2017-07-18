@@ -5,14 +5,16 @@ def every_other_letter(string)
     new_str << string[idx]if idx.even?
     idx += 1
   end
-  return new_str
+  new_str
 end
 
 def every_other_letter(string)
   new_str = ""
   idx = 0
   until idx == string.length
-    new_str << string[idx] if idx.even?
+    if idx.even?
+      new_str << string[idx]
+    end
     idx += 1
   end
   new_str
