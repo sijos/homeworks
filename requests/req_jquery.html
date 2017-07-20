@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1>jquery play</h1>
+
+    <ul class="first-list"></ul>
+    <ul class="second-list"></ul>
+
+    <script>
+      $(document).ready(function() {
+        $.ajax({
+          method: 'GET',
+          url: 'https://jsonplaceholder.typicode.com/posts'
+        }).then((data) => processRes(data));
+      })
+
+      function processRes(items) {
+        let firstHalf = items.filter((obj) => obj.id <= 50);
+        let secondHalf = items.filter((obj) => obj.id > 50);
+
+        firstHalf.forEach((obj) => {
+          let $li = $(`<li>${obj.id}</li>`);
+          $li.append(`<div>${obj.title}</div>`);
+          $(".first-list").append($li);
+        })
+
+        $(".first-list li").addClass("first");
+        
+      }
+    </script>
+  </body>
+</html>
