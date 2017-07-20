@@ -1,41 +1,38 @@
-# Hipsterfy
 
-# Define a method, #hipsterfy, that accepts a sentence (string) as an argument.
-# The method should return a new string with the last vowel removed from each word.
+# Even Splitters
+# ------------------------------------------------------------------------------
+# Return an array of characters on which we can split an input string to produce
+# substrings of the same length.
 
-# 'y' is not a vowel. If a word has no vowels, don't change it. You may assume all
-# letters are lower-case.
+# Don't count empty strings after the split.
 
-# ex. hipsterfy("towel flicker banana") => "towl flickr banan"
+# Here's an example for "banana":
+#
+# "banana".split("a") # => ["b", "n", "n"] (all elements same length)
+# "banana".split("b") # => ["", anana"] (all elements same length - there's only
+# one element "anana" because the empty string doesn't count)
+# "banana".split("n") # => ["ba", "a", "a"] (all elements NOT same length)
+#
+# result: ["b", "a"]
+#
+# ------------------------------------------------------------------------------
 
-def hipsterfy(sentence)
-  sentence.split.map{ |word| hip_word(word) }.join(' ')
-end
+def even_splitters(string)
+  result = []
 
-def hip_word(word)
-  vowels = %w(a e i o u)
-  needs_remove = true
-  new_word = ""
-  # rev = word.reverse
-  # last_v_index = rev.split('').index{|ch| vowels.include?(ch) }
-  # return word unless last_v_index
-  # word[0...last_v_index] + word[(last_v_index + 1)..-1]
-
-  idx = word.length - 1
-  while idx >= 0
-    if needs_remove && vowels.include?(word[idx])
-      needs_remove = false
-    else
-      new_word << word[idx]
-    end
-    idx -= 1
+  string.each_char do |ch|
+    splits = string.split(ch).reject{ |c| c == "" }
+    result << ch if splits.all?{ |str| str.length == splits.first.length }
+    # result << ch if splits.count{ |s| s.length == splits.first.length } == splits.length
   end
-  new_word.reverse
+
+  result.uniq
 end
 
-
-puts "-------Hipsterfy-------"
-puts hipsterfy("proper") == "propr"
-puts hipsterfy("mstrkrft") == "mstrkrft"
-puts hipsterfy("towel flicker banana") == "towl flickr banan"
-puts hipsterfy("turtle cheeseburger fries") == "turtl cheeseburgr fris"
+puts "-----Even Splitters----"
+puts even_splitters("") == []
+puts even_splitters("t") == ["t"]
+puts even_splitters("jk") == ["j", "k"]
+puts even_splitters("xoxo") == ["x", "o"]
+puts even_splitters("banana") == ["b","a"]
+puts even_splitters("mishmash") == ["m","h"]
