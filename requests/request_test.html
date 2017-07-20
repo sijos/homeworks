@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Requesting</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+     <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous">
+    </script> 
+  </head>
+  <body>
+    <h1>Page Title Here</h1>
+
+    <ul id="data-list"></ul>
+
+    <script>
+      function getReq() {
+        const req = new XMLHttpRequest();
+        req.open('GET', 'https://jsonplaceholder.typicode.com/posts', true);
+        req.onreadystatechange = processData;
+        req.send();
+      }
+
+      function processData(e) {
+        const res = e.currentTarget;
+        if (res.status === 200 && res.readyState === 4) {
+          const data = JSON.parse(res.responseText);
+          appendListItems(data);
+        } else {
+          console.log('Error');
+        }
+      }
+
+      function appendListItems(items) {
+        const ul = document.getElementById("data-list");
+        items.forEach(item => {
+          let li = document.createElement("li");
+          li.appendChild(document.createTextNode(`${item.title}`));
+          ul.appendChild(li);
+        })
+      }
+
+      document.addEventListener('DOMContentLoaded', getReq());
+      
+    </script>
+  </body>
+</html>
