@@ -13,8 +13,10 @@
     <h1>jquery play</h1>
 
     <ul class="first-list"></ul>
-    <ul class="second-list"></ul>
-
+  
+    <div class="bottom-wrapper">
+      <section class="second-list"></section>
+    </div>
     <script>
       $(document).ready(function() {
         $.ajax({
@@ -35,6 +37,23 @@
 
         $(".first-list li").addClass("first");
         
+        secondHalf.slice(0,4).forEach((obj) => {
+          let $div = $(
+            `<div class='detail'>
+              <h4>${obj.title}</h4>
+              <p>${obj.body}</p>
+            </div>`
+          );
+          $(".second-list").append($div)
+        })
+        
+        $(".detail > h4").click(function() {
+          $(this).toggleClass("blue");
+        })
+
+        $('.detail > p').hover(function() {
+          $(this).slideToggle(200);
+        });
       }
     </script>
   </body>

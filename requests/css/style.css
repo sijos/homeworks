@@ -1,0 +1,31 @@
+ul {
+  list-style: none
+}
+
+.first-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.first {
+  width: 100px;
+  height: 150px;
+  text-align: center;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin: 4px;
+}
+
+.bottom-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.second-list {
+  width: 90%;
+  border: 1px solid lightgray;
+}
+
+.blue {
+  background-color: blue;
+}
